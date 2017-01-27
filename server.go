@@ -33,6 +33,8 @@ func runServer(port int) (err error){
 			"x-requested-with"},
 		AllowCredentials: true,
 	})
+	wc := controllers.NewWebSocketController()
+	r.GET("/websocket", wc.Handle)
 	handler:= c.Handler(r)
 	// Fire up the server
 	server_hostname := fmt.Sprintf("localhost:%v",port)
@@ -40,6 +42,7 @@ func runServer(port int) (err error){
 	fmt.Println(http.ListenAndServe(server_hostname, handler))
 	return err
 }
+
 
 func main(){
 	flag.Parse()

@@ -88,6 +88,7 @@ func (uc MongoPostController) CreatePost(w http.ResponseWriter, r *http.Request,
 	pst.Id = bson.NewObjectId()
 	pst.TimeReceived = time.Now()
 	uc.session.DB("sense").C("posts").Insert(pst)
+	ws_con.WriteJSON(pst)
 	pj, _ := json.Marshal(pst)
 	// Write content-type, statuscode, payload
 	w.Header().Set("Content-Type", "application/json")
