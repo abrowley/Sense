@@ -5,4 +5,4 @@ Sense is a server which receives JSON data from sensor in the form of simple htt
 
 It is intended to be used for internet of things applications.
 
-It is written in golang and uses mongodb
+It is written in golang and uses mongodb.

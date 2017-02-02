@@ -37,7 +37,7 @@ func runServer(port int) (err error){
 	r.GET("/websocket", wc.Handle)
 	handler:= c.Handler(r)
 	// Fire up the server
-	server_hostname := fmt.Sprintf("localhost:%v",port)
+	server_hostname := fmt.Sprintf(":%v",port)
 	fmt.Printf("Running on %s \n", server_hostname)
 	fmt.Println(http.ListenAndServe(server_hostname, handler))
 	return err
